@@ -8,8 +8,6 @@ RUN apt update && apt install -y \
     texlive-latex-extra \
     texlive-fonts-recommended \
     texlive-fonts-extra \
-    texlive-generic-recommended \
-    texlive-generic-extra \
     texlive-pictures \
     texlive-science \
     cm-super \
