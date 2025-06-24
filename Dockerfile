@@ -14,10 +14,13 @@ RUN apt update && apt install -y \
     dvipng \
     && apt-get clean
 
-WORKDIR /resume
+WORKDIR /resume/CV
 
-COPY CV/ ./CV/
+COPY CV/ ./
 
-RUN pdflatex -interaction=nonstopmode CV/main.tex
+RUN ls -l ./
+
+RUN pdflatex -interaction=nonstopmode main.tex || (cat main.log && exit 1) && \
+    pdflatex -interaction=nonstopmode main.tex
 
 CMD ["bash"]
