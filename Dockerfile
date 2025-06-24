@@ -20,7 +20,7 @@ COPY CV/ ./
 
 RUN ls -l ./
 
-RUN pdflatex -interaction=nonstopmode main.tex || (cat main.log && exit 1) && \
-    pdflatex -interaction=nonstopmode main.tex
+RUN pdflatex -interaction=nonstopmode main.tex || (echo "=== LaTex ERROR ===" && cat main.log && exit 1)
+RUN pdflatex -interaction=nonstopmode main.tex
 
 CMD ["bash"]
